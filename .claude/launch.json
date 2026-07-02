@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ginas-upholstery",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["-y", "serve", "-l", "4173", "/Users/darrenmurray/Documents/ginas-upholstery-studio"],
+      "port": 4173
+    }
+  ]
+}
