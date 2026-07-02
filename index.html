@@ -29,7 +29,6 @@
   <nav class="nav-links" id="navLinks" aria-label="Primary">
     <a href="#services">Services</a>
     <a href="#craft">The Craft</a>
-    <a href="#restoration">Before &amp; After</a>
     <a href="#words">Kind Words</a>
     <a href="#contact">Contact</a>
   </nav>
@@ -58,11 +57,81 @@
       <li>Residential &amp; commercial</li>
     </ul>
   </div>
-  <div class="hero-art reveal" aria-hidden="false">
-    <div class="arch-frame">
-      <canvas id="vineCanvas" role="img" aria-label="An Arts-and-Crafts vine draws itself on a deep indigo ground, branching symmetrically and unfurling sage leaves with madder flowers at the tips."></canvas>
+  <div class="hero-art reveal">
+    <div class="reveal-stage" id="revealStage">
+      <svg viewBox="0 0 600 750" role="img" aria-label="The same wingback armchair before and after restoration: worn, patched and faded on one side; re-upholstered in rich madder red with gold piping and polished legs on the other.">
+        <defs>
+          <clipPath id="revealClip"><rect id="revealClipRect" x="330" y="0" width="270" height="750"/></clipPath>
+          <clipPath id="revealClipBefore"><rect id="revealClipBeforeRect" x="0" y="0" width="330" height="750"/></clipPath>
+          <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff" stop-opacity=".26"/>
+            <stop offset=".5" stop-color="#ffffff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <g transform="translate(0 180)">
+          <ellipse cx="300" cy="492" rx="205" ry="16" fill="#23301f" opacity=".16"/>
+
+          <!-- BEFORE: worn (clipped to the left of the tack) -->
+          <g clip-path="url(#revealClipBefore)" stroke-linejoin="round" stroke-linecap="round" transform="translate(0 -180)">
+            <g transform="translate(0 180)">
+              <path d="M180 312 V150 Q180 78 300 78 Q420 78 420 150 V312 Z" fill="#a39a84" stroke="#5c564a" stroke-width="3"/>
+              <path d="M202 296 V162 Q202 100 300 100 Q398 100 398 162 V296 Z" fill="#b5ac95" stroke="#5c564a" stroke-width="2"/>
+              <ellipse cx="338" cy="176" rx="27" ry="15" fill="#5c564a" opacity=".13"/>
+              <ellipse cx="248" cy="248" rx="20" ry="12" fill="#5c564a" opacity=".1"/>
+              <path d="M118 336 V238 Q118 206 149 206 Q180 206 180 238 V336 Z" fill="#90876f" stroke="#5c564a" stroke-width="3"/>
+              <path d="M420 336 V238 Q420 206 451 206 Q482 206 482 238 V336 Z" fill="#90876f" stroke="#5c564a" stroke-width="3"/>
+              <path d="M132 214 q17 -10 34 0" fill="none" stroke="#c3b89d" stroke-width="4" opacity=".85"/>
+              <path d="M434 214 q17 -10 34 0" fill="none" stroke="#c3b89d" stroke-width="4" opacity=".85"/>
+              <path d="M182 300 Q300 320 418 300 L420 334 Q300 358 180 334 Z" fill="#a39a84" stroke="#5c564a" stroke-width="3"/>
+              <path d="M225 318 q75 13 150 0" fill="none" stroke="#5c564a" stroke-width="1.6" opacity=".45"/>
+              <path d="M118 344 H482 Q494 344 494 358 V400 Q494 412 482 412 H118 Q106 412 106 400 V358 Q106 344 118 344 Z" fill="#a39a84" stroke="#5c564a" stroke-width="3"/>
+              <ellipse cx="212" cy="380" rx="22" ry="12" fill="#5c564a" opacity=".11"/>
+              <g transform="rotate(8 452 272)"><rect x="433" y="256" width="38" height="30" rx="5" fill="#c3b89d" stroke="#5c564a" stroke-width="2" stroke-dasharray="5 4"/></g>
+              <path d="M198 412 q6 12 -4 24" fill="none" stroke="#5c564a" stroke-width="2"/>
+              <path d="M372 412 q-4 10 6 20" fill="none" stroke="#5c564a" stroke-width="2"/>
+              <path d="M120 300 q-9 8 -3 19" fill="none" stroke="#5c564a" stroke-width="2"/>
+              <path d="M138 412 l26 0 -7 56 -13 0 Z" fill="#8b7b67" stroke="#5c564a" stroke-width="2"/>
+              <path d="M436 412 l26 0 -6 56 -13 0 Z" fill="#8b7b67" stroke="#5c564a" stroke-width="2"/>
+              <path d="M252 412 l20 0 -5 46 -11 0 Z" fill="#8b7b67" stroke="#5c564a" stroke-width="2"/>
+              <path d="M328 412 l20 0 -4 46 -11 0 Z" fill="#8b7b67" stroke="#5c564a" stroke-width="2"/>
+            </g>
+          </g>
+
+          <!-- AFTER: revived (clipped to the right of the tack) -->
+          <g clip-path="url(#revealClip)" stroke-linejoin="round" stroke-linecap="round" transform="translate(0 -180)">
+            <g transform="translate(0 180)">
+              <path d="M180 312 V150 Q180 78 300 78 Q420 78 420 150 V312 Z" fill="#a8392b" stroke="#3a1912" stroke-width="3"/>
+              <path d="M202 296 V162 Q202 100 300 100 Q398 100 398 162 V296 Z" fill="#b84a33" stroke="#3a1912" stroke-width="2"/>
+              <circle cx="258" cy="146" r="4.5" fill="#741f14"/>
+              <circle cx="342" cy="146" r="4.5" fill="#741f14"/>
+              <circle cx="300" cy="190" r="4.5" fill="#741f14"/>
+              <circle cx="258" cy="236" r="4.5" fill="#741f14"/>
+              <circle cx="342" cy="236" r="4.5" fill="#741f14"/>
+              <path d="M118 336 V238 Q118 206 149 206 Q180 206 180 238 V336 Z" fill="#8b2e22" stroke="#3a1912" stroke-width="3"/>
+              <path d="M420 336 V238 Q420 206 451 206 Q482 206 482 238 V336 Z" fill="#8b2e22" stroke="#3a1912" stroke-width="3"/>
+              <path class="stitch" d="M128 238 Q128 216 149 216 Q170 216 170 238" fill="none" stroke="#c2a14a" stroke-width="2.5"/>
+              <path class="stitch" d="M430 238 Q430 216 451 216 Q472 216 472 238" fill="none" stroke="#c2a14a" stroke-width="2.5"/>
+              <path d="M196 294 H404 Q420 294 420 312 V330 Q420 348 404 348 H196 Q180 348 180 330 V312 Q180 294 196 294 Z" fill="#a8392b" stroke="#3a1912" stroke-width="3"/>
+              <path class="stitch" d="M188 302 H412" fill="none" stroke="#c2a14a" stroke-width="2.5"/>
+              <path d="M118 344 H482 Q494 344 494 358 V400 Q494 412 482 412 H118 Q106 412 106 400 V358 Q106 344 118 344 Z" fill="#a8392b" stroke="#3a1912" stroke-width="3"/>
+              <path class="stitch" d="M114 352 H486" fill="none" stroke="#c2a14a" stroke-width="2.5"/>
+              <path d="M180 312 V150 Q180 78 300 78 Q420 78 420 150 V312 Z" fill="url(#sheen)"/>
+              <path d="M138 412 l26 0 -7 56 -13 0 Z" fill="#6f4a2c" stroke="#3a1912" stroke-width="2"/>
+              <path d="M436 412 l26 0 -6 56 -13 0 Z" fill="#6f4a2c" stroke="#3a1912" stroke-width="2"/>
+              <path d="M252 412 l20 0 -5 46 -11 0 Z" fill="#6f4a2c" stroke="#3a1912" stroke-width="2"/>
+              <path d="M328 412 l20 0 -4 46 -11 0 Z" fill="#6f4a2c" stroke="#3a1912" stroke-width="2"/>
+              <path d="M146 416 l4 46" fill="none" stroke="#a9764f" stroke-width="3"/>
+              <path d="M444 416 l4 46" fill="none" stroke="#a9764f" stroke-width="3"/>
+            </g>
+          </g>
+        </g>
+      </svg>
+      <span class="reveal-label label-before">Before</span>
+      <span class="reveal-label label-after">After</span>
+      <div class="reveal-line" aria-hidden="true"></div>
+      <input type="range" id="revealRange" min="0" max="100" value="55" step="0.5" aria-label="Compare the chair before and after restoration">
     </div>
-    <p class="art-caption">The Growing Vine — after the Arts &amp; Crafts tradition</p>
+    <p class="art-caption">Drag the tack — watch it come back to life</p>
   </div>
 </section>
 
@@ -137,86 +206,6 @@
     <p>&ldquo;Have nothing in your houses that you do not know to be useful, or believe to be beautiful.&rdquo;</p>
     <cite>— William Morris</cite>
   </blockquote>
-</section>
-
-<!-- Restoration reveal -->
-<section class="section restore" id="restoration">
-  <div class="section-head reveal">
-    <p class="eyebrow">Before &amp; after</p>
-    <h2>Drag the tack — watch it come back to life</h2>
-    <p class="section-sub">Every piece that leaves the workshop makes the same journey: stripped to the frame, rebuilt, and re-covered by hand. Slide across to see it happen.</p>
-  </div>
-  <div class="reveal-stage reveal" id="revealStage">
-    <svg viewBox="0 0 600 520" role="img" aria-label="The same wingback armchair before and after restoration: worn, patched and faded on one side; re-upholstered in rich madder red with gold piping and polished legs on the other.">
-      <defs>
-        <clipPath id="revealClip"><rect id="revealClipRect" x="330" y="0" width="270" height="520"/></clipPath>
-        <clipPath id="revealClipBefore"><rect id="revealClipBeforeRect" x="0" y="0" width="330" height="520"/></clipPath>
-        <linearGradient id="sheen" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0" stop-color="#ffffff" stop-opacity=".26"/>
-          <stop offset=".5" stop-color="#ffffff" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <ellipse cx="300" cy="492" rx="205" ry="16" fill="#23301f" opacity=".16"/>
-
-      <!-- BEFORE: worn (clipped to the left of the tack) -->
-      <g clip-path="url(#revealClipBefore)" stroke-linejoin="round" stroke-linecap="round">
-        <path d="M180 312 V150 Q180 78 300 78 Q420 78 420 150 V312 Z" fill="#a39a84" stroke="#5c564a" stroke-width="3"/>
-        <path d="M202 296 V162 Q202 100 300 100 Q398 100 398 162 V296 Z" fill="#b5ac95" stroke="#5c564a" stroke-width="2"/>
-        <ellipse cx="338" cy="176" rx="27" ry="15" fill="#5c564a" opacity=".13"/>
-        <ellipse cx="248" cy="248" rx="20" ry="12" fill="#5c564a" opacity=".1"/>
-        <path d="M118 336 V238 Q118 206 149 206 Q180 206 180 238 V336 Z" fill="#90876f" stroke="#5c564a" stroke-width="3"/>
-        <path d="M420 336 V238 Q420 206 451 206 Q482 206 482 238 V336 Z" fill="#90876f" stroke="#5c564a" stroke-width="3"/>
-        <path d="M132 214 q17 -10 34 0" fill="none" stroke="#c3b89d" stroke-width="4" opacity=".85"/>
-        <path d="M434 214 q17 -10 34 0" fill="none" stroke="#c3b89d" stroke-width="4" opacity=".85"/>
-        <path d="M182 300 Q300 320 418 300 L420 334 Q300 358 180 334 Z" fill="#a39a84" stroke="#5c564a" stroke-width="3"/>
-        <path d="M225 318 q75 13 150 0" fill="none" stroke="#5c564a" stroke-width="1.6" opacity=".45"/>
-        <path d="M118 344 H482 Q494 344 494 358 V400 Q494 412 482 412 H118 Q106 412 106 400 V358 Q106 344 118 344 Z" fill="#a39a84" stroke="#5c564a" stroke-width="3"/>
-        <ellipse cx="212" cy="380" rx="22" ry="12" fill="#5c564a" opacity=".11"/>
-        <g transform="rotate(8 452 272)"><rect x="433" y="256" width="38" height="30" rx="5" fill="#c3b89d" stroke="#5c564a" stroke-width="2" stroke-dasharray="5 4"/></g>
-        <path d="M198 412 q6 12 -4 24" fill="none" stroke="#5c564a" stroke-width="2"/>
-        <path d="M372 412 q-4 10 6 20" fill="none" stroke="#5c564a" stroke-width="2"/>
-        <path d="M120 300 q-9 8 -3 19" fill="none" stroke="#5c564a" stroke-width="2"/>
-        <path d="M138 412 l26 0 -7 56 -13 0 Z" fill="#8b7b67" stroke="#5c564a" stroke-width="2"/>
-        <path d="M436 412 l26 0 -6 56 -13 0 Z" fill="#8b7b67" stroke="#5c564a" stroke-width="2"/>
-        <path d="M252 412 l20 0 -5 46 -11 0 Z" fill="#8b7b67" stroke="#5c564a" stroke-width="2"/>
-        <path d="M328 412 l20 0 -4 46 -11 0 Z" fill="#8b7b67" stroke="#5c564a" stroke-width="2"/>
-      </g>
-
-      <!-- AFTER: revived (clipped to the right of the tack) -->
-      <g clip-path="url(#revealClip)" stroke-linejoin="round" stroke-linecap="round">
-        <path d="M180 312 V150 Q180 78 300 78 Q420 78 420 150 V312 Z" fill="#a8392b" stroke="#3a1912" stroke-width="3"/>
-        <path d="M202 296 V162 Q202 100 300 100 Q398 100 398 162 V296 Z" fill="#b84a33" stroke="#3a1912" stroke-width="2"/>
-        <circle cx="258" cy="146" r="4.5" fill="#741f14"/>
-        <circle cx="342" cy="146" r="4.5" fill="#741f14"/>
-        <circle cx="300" cy="190" r="4.5" fill="#741f14"/>
-        <circle cx="258" cy="236" r="4.5" fill="#741f14"/>
-        <circle cx="342" cy="236" r="4.5" fill="#741f14"/>
-        <path d="M118 336 V238 Q118 206 149 206 Q180 206 180 238 V336 Z" fill="#8b2e22" stroke="#3a1912" stroke-width="3"/>
-        <path d="M420 336 V238 Q420 206 451 206 Q482 206 482 238 V336 Z" fill="#8b2e22" stroke="#3a1912" stroke-width="3"/>
-        <path class="stitch" d="M128 238 Q128 216 149 216 Q170 216 170 238" fill="none" stroke="#c2a14a" stroke-width="2.5"/>
-        <path class="stitch" d="M430 238 Q430 216 451 216 Q472 216 472 238" fill="none" stroke="#c2a14a" stroke-width="2.5"/>
-        <path d="M196 294 H404 Q420 294 420 312 V330 Q420 348 404 348 H196 Q180 348 180 330 V312 Q180 294 196 294 Z" fill="#a8392b" stroke="#3a1912" stroke-width="3"/>
-        <path class="stitch" d="M188 302 H412" fill="none" stroke="#c2a14a" stroke-width="2.5"/>
-        <path d="M118 344 H482 Q494 344 494 358 V400 Q494 412 482 412 H118 Q106 412 106 400 V358 Q106 344 118 344 Z" fill="#a8392b" stroke="#3a1912" stroke-width="3"/>
-        <path class="stitch" d="M114 352 H486" fill="none" stroke="#c2a14a" stroke-width="2.5"/>
-        <path d="M180 312 V150 Q180 78 300 78 Q420 78 420 150 V312 Z" fill="url(#sheen)"/>
-        <path d="M138 412 l26 0 -7 56 -13 0 Z" fill="#6f4a2c" stroke="#3a1912" stroke-width="2"/>
-        <path d="M436 412 l26 0 -6 56 -13 0 Z" fill="#6f4a2c" stroke="#3a1912" stroke-width="2"/>
-        <path d="M252 412 l20 0 -5 46 -11 0 Z" fill="#6f4a2c" stroke="#3a1912" stroke-width="2"/>
-        <path d="M328 412 l20 0 -4 46 -11 0 Z" fill="#6f4a2c" stroke="#3a1912" stroke-width="2"/>
-        <path d="M146 416 l4 46" fill="none" stroke="#a9764f" stroke-width="3"/>
-        <path d="M444 416 l4 46" fill="none" stroke="#a9764f" stroke-width="3"/>
-      </g>
-    </svg>
-    <span class="reveal-label label-before">Before</span>
-    <span class="reveal-label label-after">After</span>
-    <div class="reveal-line" aria-hidden="true"></div>
-    <input type="range" id="revealRange" min="0" max="100" value="55" step="0.5" aria-label="Compare the chair before and after restoration">
-  </div>
-  <p class="restore-caption reveal">Frame re-glued &nbsp;·&nbsp; springs re-tied &nbsp;·&nbsp; new fillings &nbsp;·&nbsp; hand-finished piping</p>
-  <div class="restore-cta reveal">
-    <a class="btn btn-solid btn-lg" href="#contact">Start a Restoration</a>
-  </div>
 </section>
 
 <!-- Testimonials -->
@@ -296,7 +285,6 @@
     <nav class="footer-links" aria-label="Footer">
       <a href="#services">Services</a>
       <a href="#craft">The Craft</a>
-      <a href="#restoration">Before &amp; After</a>
       <a href="#words">Kind Words</a>
       <a href="#contact">Contact</a>
     </nav>

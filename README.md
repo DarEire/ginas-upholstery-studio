@@ -8,14 +8,13 @@ A quiet-premium remake of [galwayupholstery.com](https://galwayupholstery.com), 
 
 A zero-dependency static site — plain HTML, CSS and JavaScript. No framework, no build step.
 
-- `index.html` — one-page site: hero, services, process, before/after restoration reveal, testimonials, contact
+- `index.html` — one-page site: hero with before/after restoration reveal, services, process, testimonials, contact
 - `styles.css` — Arts & Crafts palette (indigo, madder, sage, gold on warm cream), Fraunces + Inter type
-- `script.js` — hero canvas animation, restoration reveal slider, mobile nav, scroll reveals, enquiry form
+- `script.js` — restoration reveal slider, mobile nav, scroll reveals, enquiry form
 
-Signature animations:
+Signature animation — the hero's **before & after restoration reveal**: a bespoke SVG wingback armchair drawn twice (worn and patched vs. re-upholstered in madder with animated gold stitching), split by a draggable brass tack inside an arched frame. Driven by an invisible full-bleed `<input type="range">`, so it's keyboard-accessible and touch-friendly; a one-time hint sweep plays on load (skipped under `prefers-reduced-motion`).
 
-- **Hero:** *Growing Vine*, adapted from [isas1/forever-ai-components](https://github.com/isas1/forever-ai-components) (`infinite/morris/03-growing-vine.html`) — a recursive Arts & Crafts vine that draws itself on deep indigo. Keeps the original's `prefers-reduced-motion` guard, `visibilitychange` pause/resume and DPR-aware canvas sizing, and additionally pauses when scrolled out of view.
-- **Before & After:** a bespoke SVG restoration reveal — the same wingback armchair drawn twice (worn and patched vs. re-upholstered in madder with animated gold stitching), split by a draggable brass tack. Driven by an invisible full-bleed `<input type="range">`, so it's keyboard-accessible and touch-friendly; a one-time hint sweep plays when it first scrolls into view (skipped under reduced motion).
+Design inspired by [isas1/forever-ai-components](https://github.com/isas1/forever-ai-components) and its William Morris collection.
 
 Design inspiration: Maiden Home, Long Eaton Sofas, Sixpenny, Loaf — "quiet premium" with a heritage-craft accent.
 
