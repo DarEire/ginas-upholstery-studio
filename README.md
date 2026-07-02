@@ -8,16 +8,14 @@ A quiet-premium remake of [galwayupholstery.com](https://galwayupholstery.com), 
 
 A zero-dependency static site — plain HTML, CSS and JavaScript. No framework, no build step.
 
-- `index.html` — one-page site: hero, services, process, fabric library, testimonials, contact
+- `index.html` — one-page site: hero, services, process, before/after restoration reveal, testimonials, contact
 - `styles.css` — Arts & Crafts palette (indigo, madder, sage, gold on warm cream), Fraunces + Inter type
-- `script.js` — canvas animations, mobile nav, scroll reveals, enquiry form
+- `script.js` — hero canvas animation, restoration reveal slider, mobile nav, scroll reveals, enquiry form
 
-The two canvas pieces are adapted from [isas1/forever-ai-components](https://github.com/isas1/forever-ai-components):
+Signature animations:
 
-- **Hero:** *Growing Vine* (`infinite/morris/03-growing-vine.html`) — a recursive Arts & Crafts vine that draws itself on deep indigo
-- **Fabrics:** *Colour-Way Switcher* (`infinite/morris/04-colour-way-switcher.html`) — an ogee botanical tile that re-dyes itself through five historic colourways, driven by the swatch buttons
-
-Both keep the originals' `prefers-reduced-motion` guards, `visibilitychange` pause/resume and DPR-aware canvas sizing, and additionally pause when scrolled out of view.
+- **Hero:** *Growing Vine*, adapted from [isas1/forever-ai-components](https://github.com/isas1/forever-ai-components) (`infinite/morris/03-growing-vine.html`) — a recursive Arts & Crafts vine that draws itself on deep indigo. Keeps the original's `prefers-reduced-motion` guard, `visibilitychange` pause/resume and DPR-aware canvas sizing, and additionally pauses when scrolled out of view.
+- **Before & After:** a bespoke SVG restoration reveal — the same wingback armchair drawn twice (worn and patched vs. re-upholstered in madder with animated gold stitching), split by a draggable brass tack. Driven by an invisible full-bleed `<input type="range">`, so it's keyboard-accessible and touch-friendly; a one-time hint sweep plays when it first scrolls into view (skipped under reduced motion).
 
 Design inspiration: Maiden Home, Long Eaton Sofas, Sixpenny, Loaf — "quiet premium" with a heritage-craft accent.
 

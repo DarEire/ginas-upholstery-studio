@@ -1,9 +1,8 @@
 /* Gina's Upholstery Studio
-   Canvas components adapted from forever-ai-components (isas1/forever-ai-components):
+   Hero canvas adapted from forever-ai-components (isas1/forever-ai-components):
    - infinite/morris/03-growing-vine.html
-   - infinite/morris/04-colour-way-switcher.html
-   Zero dependencies. Both preserve reduced-motion guards, visibilitychange
-   pause/start and DPR-aware canvas fitting from the originals. */
+   Zero dependencies. Preserves the original's reduced-motion guard,
+   visibilitychange pause/start and DPR-aware canvas fitting. */
 
 (function () {
   "use strict";
@@ -145,124 +144,47 @@
   })();
 
   /* ============================================================
-     Fabrics — Colour-Way Switcher (after morris/04),
-     driven by the swatch buttons instead of an auto timer.
+     Restoration reveal — before/after chair with draggable tack.
+     The (invisible) range input drives --pos for the divider line
+     and the clip rect that unveils the restored layer.
      ============================================================ */
   (function () {
-    var cv = document.getElementById("wayCanvas");
-    if (!cv) return;
-    var INK = "#23301f";
-    var S = fitCanvas(cv);
+    var stage = document.getElementById("revealStage");
+    var range = document.getElementById("revealRange");
+    var clipRect = document.getElementById("revealClipRect");
+    var clipBefore = document.getElementById("revealClipBeforeRect");
+    if (!stage || !range || !clipRect || !clipBefore) return;
+    var VB = 600; /* svg viewBox width */
 
-    var colourways = [
-      { stem: "#3a6a55", leaf: "#2c4a6e", flower: "#c2a14a", berry: "#7d9b6a", ground: "#dfe6e4" }, /* indigo */
-      { stem: "#6b7233", leaf: "#a8392b", flower: "#c2a14a", berry: "#2c4a6e", ground: "#f0e2d4" }, /* madder */
-      { stem: "#4a5a2a", leaf: "#7d9b6a", flower: "#a8392b", berry: "#6b7233", ground: "#e9ecda" }, /* sage   */
-      { stem: "#6b7233", leaf: "#c2a14a", flower: "#a8392b", berry: "#2c4a6e", ground: "#f1e9cf" }, /* gold   */
-      { stem: "#3a4a33", leaf: "#23301f", flower: "#a8392b", berry: "#6b7233", ground: "#e6dcc0" }  /* ink    */
-    ];
-    function hex(c) { return parseInt(c.slice(1), 16); }
-    function mixColor(a, b, t) {
-      var pa = hex(a), pb = hex(b);
-      var ar = pa >> 16, ag = (pa >> 8) & 255, ab = pa & 255;
-      var br = pb >> 16, bg = (pb >> 8) & 255, bb = pb & 255;
-      return "rgb(" + Math.round(ar + (br - ar) * t) + "," + Math.round(ag + (bg - ag) * t) + "," + Math.round(ab + (bb - ab) * t) + ")";
+    function setPos(v) {
+      stage.style.setProperty("--pos", v + "%");
+      var x = v / 100 * VB;
+      clipRect.setAttribute("x", x);
+      clipRect.setAttribute("width", Math.max(0, VB - x));
+      clipBefore.setAttribute("width", x);
     }
-    function mixWay(a, b, t) {
-      return {
-        stem: mixColor(a.stem, b.stem, t), leaf: mixColor(a.leaf, b.leaf, t),
-        flower: mixColor(a.flower, b.flower, t), berry: mixColor(a.berry, b.berry, t),
-        ground: mixColor(a.ground, b.ground, t)
-      };
+    range.addEventListener("input", function () { setPos(+range.value); });
+    setPos(+range.value);
+
+    /* one gentle sweep when first scrolled into view, to hint at the drag */
+    if (!REDUCED && "IntersectionObserver" in window) {
+      var played = false;
+      new IntersectionObserver(function (entries, io) {
+        if (!entries[0].isIntersecting || played) return;
+        played = true;
+        io.disconnect();
+        var from = +range.value, t0 = null;
+        function step(ts) {
+          if (t0 === null) t0 = ts;
+          var p = Math.min(1, (ts - t0) / 1600);
+          var v = from - 30 * Math.sin(p * Math.PI); /* out and back */
+          range.value = v;
+          setPos(v);
+          if (p < 1 && !stage.matches(":focus-within")) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      }, { threshold: 0.5 }).observe(stage);
     }
-
-    var cur = 0, want = 0, blend = 1;
-
-    var tileCv, tileSize = 120;
-    function buildTile(w) {
-      var c = tileCv || (tileCv = document.createElement("canvas"));
-      c.width = c.height = tileSize;
-      var x = c.getContext("2d"), u = tileSize;
-      x.clearRect(0, 0, u, u);
-      x.lineCap = "round"; x.lineJoin = "round";
-      x.strokeStyle = w.stem; x.lineWidth = 5;
-      x.beginPath(); x.moveTo(u * 0.5, 0);
-      x.bezierCurveTo(u * 0.9, u * 0.25, u * 0.1, u * 0.5, u * 0.5, u * 0.75);
-      x.bezierCurveTo(u * 0.9, u * 0.9, u * 0.5, u, u * 0.5, u); x.stroke();
-      x.beginPath(); x.moveTo(0, u * 0.5);
-      x.bezierCurveTo(u * 0.25, u * 0.1, u * 0.5, u * 0.9, u * 0.75, u * 0.5);
-      x.bezierCurveTo(u * 0.9, u * 0.5, u, u * 0.5, u, u * 0.5); x.stroke();
-      function lf(px, py, rot, sc) {
-        x.save(); x.translate(px, py); x.rotate(rot); x.scale(sc, sc);
-        x.beginPath(); x.moveTo(0, 0);
-        x.bezierCurveTo(14, -8, 18, -26, 6, -40);
-        x.bezierCurveTo(2, -30, -4, -34, -14, -22);
-        x.bezierCurveTo(-8, -12, -10, -6, 0, 0);
-        x.closePath();
-        x.fillStyle = w.leaf; x.fill();
-        x.strokeStyle = INK; x.lineWidth = 1.4; x.stroke();
-        x.restore();
-      }
-      lf(u * 0.5, u * 0.5, 0.5, 1);
-      lf(u * 0.5, u * 0.5, Math.PI + 0.5, 0.8);
-      x.save(); x.translate(u * 0.5, u * 0.5);
-      for (var i = 0; i < 6; i++) {
-        x.rotate(Math.PI / 3);
-        x.beginPath(); x.ellipse(0, -10, 5, 9, 0, 0, 7);
-        x.fillStyle = w.flower; x.fill();
-        x.strokeStyle = INK; x.lineWidth = 1; x.stroke();
-      }
-      x.beginPath(); x.arc(0, 0, 5, 0, 7);
-      x.fillStyle = w.berry; x.fill();
-      x.strokeStyle = INK; x.lineWidth = 1; x.stroke();
-      x.restore();
-      [[6, 6], [u - 6, 6], [6, u - 6], [u - 6, u - 6]].forEach(function (p) {
-        x.beginPath(); x.arc(p[0], p[1], 4, 0, 7);
-        x.fillStyle = w.berry; x.fill();
-        x.strokeStyle = INK; x.lineWidth = 1; x.stroke();
-      });
-      return c;
-    }
-
-    var off = 0;
-    function draw(dt) {
-      if (!REDUCED && blend < 1) {
-        blend = Math.min(1, blend + dt * 1.6);
-        if (blend >= 1) cur = want;
-      }
-      var w = (blend < 1) ? mixWay(colourways[cur], colourways[want], blend) : colourways[cur];
-      var ctx = S.ctx;
-      ctx.fillStyle = w.ground;
-      ctx.fillRect(0, 0, S.w, S.h);
-      var tile = buildTile(w);
-      if (!REDUCED) off = (off + dt * 6) % tileSize;
-      var pat = ctx.createPattern(tile, "repeat");
-      ctx.save();
-      ctx.translate(0, -off);
-      ctx.fillStyle = pat;
-      ctx.fillRect(0, -tileSize, S.w, S.h + tileSize * 2);
-      ctx.restore();
-    }
-
-    runLoop(cv, draw);
-    var rt;
-    window.addEventListener("resize", function () {
-      clearTimeout(rt);
-      rt = setTimeout(function () { S = fitCanvas(cv); if (REDUCED) draw(0); }, 150);
-    }, { passive: true });
-
-    var swatches = document.querySelectorAll(".swatch");
-    swatches.forEach(function (btn) {
-      btn.addEventListener("click", function () {
-        var idx = parseInt(btn.dataset.way, 10);
-        if (idx === want) return;
-        if (blend < 1) cur = want; /* commit any in-flight blend */
-        want = idx;
-        blend = REDUCED ? 1 : 0;
-        if (REDUCED) { cur = idx; draw(0); }
-        swatches.forEach(function (b) { b.classList.toggle("is-active", b === btn); });
-      });
-    });
   })();
 
   /* ============================================================
