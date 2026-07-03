@@ -1,6 +1,6 @@
 # Gina's Upholstery Studio
 
-A quiet-premium remake of [galwayupholstery.com](https://galwayupholstery.com), rebranded as **Gina's Upholstery Studio** — award-winning upholstery, furniture restoration, spraying and repair in Galway.
+A quiet-premium remake of [galwayupholstery.com](https://galwayupholstery.com), rebranded as **Gina's Upholstery Studio** — award-winning re-upholstery, bespoke sewing, in-store fabric selection and furniture repair in Galway.
 
 **Re-Upholster · Recycle · Revive**
 
