@@ -21,9 +21,13 @@
     function setPos(v) {
       stage.style.setProperty("--pos", v + "%");
       var x = v / 100 * VB;
-      clipRect.setAttribute("x", x);
-      clipRect.setAttribute("width", Math.max(0, VB - x));
-      clipBefore.setAttribute("width", x);
+      /* restored ("after") fills from the left edge up to the tack; the worn
+         "before" chair sits to the right of it. Dragging the tack right grows
+         the restored area, so the piece "comes back to life" as you drag. */
+      clipRect.setAttribute("x", 0);
+      clipRect.setAttribute("width", x);
+      clipBefore.setAttribute("x", x);
+      clipBefore.setAttribute("width", Math.max(0, VB - x));
     }
     range.addEventListener("input", function () { setPos(+range.value); });
     setPos(+range.value);

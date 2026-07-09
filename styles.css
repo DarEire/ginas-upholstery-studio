@@ -137,7 +137,7 @@ img,svg,canvas{display:block;max-width:100%}
 
 /* before/after restoration reveal (hero) */
 .reveal-stage{
-  position:relative;--pos:32%;
+  position:relative;--pos:60%;
   aspect-ratio:4/5;
   border-radius:260px 260px var(--radius) var(--radius);
   overflow:hidden;box-shadow:var(--shadow);
@@ -170,8 +170,8 @@ img,svg,canvas{display:block;max-width:100%}
   padding:.32rem .75rem;border-radius:999px;
   background:rgba(35,48,31,.55);color:var(--parchment);
 }
-.label-before{left:18px}
-.label-after{right:18px}
+.label-after{left:18px}
+.label-before{right:18px}
 .stitch{stroke-dasharray:7 5;animation:stitchMove 2.4s linear infinite}
 @keyframes stitchMove{to{stroke-dashoffset:-24}}
 @media (prefers-reduced-motion: reduce){.stitch{animation:none}}
