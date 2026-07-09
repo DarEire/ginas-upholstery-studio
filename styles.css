@@ -85,6 +85,7 @@ img,svg,canvas{display:block;max-width:100%}
 .brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--indigo)}
 .brand-mark{color:var(--madder);flex:none;display:flex}
 .brand-logo{display:block;width:52px;height:52px;object-fit:contain}
+.footer-brand .brand-logo{width:46px;height:46px}
 .brand-name{font-family:var(--serif);font-size:1.02rem;font-weight:600;line-height:1.05}
 .brand-name em{font-style:italic;font-weight:400;font-size:.86em;color:var(--olive)}
 .nav-links{display:flex;gap:1.7rem;margin-left:auto}
