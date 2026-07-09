@@ -14,6 +14,7 @@
   --olive:#6b7233;
   --sage:#7d9b6a;
   --gold:#c2a14a;
+  --gold-deep:#8d7331; /* focus rings & fine detail — passes 3:1 on light grounds */
   --ink:#23301f;
   --line:rgba(29,53,80,.16);
   --serif:"Fraunces",Georgia,serif;
@@ -60,7 +61,7 @@ img,svg,canvas{display:block;max-width:100%}
 .btn-solid:hover{background:#8f2f23;transform:translateY(-1px);box-shadow:0 10px 24px -10px rgba(168,57,43,.55)}
 .btn-ghost{border-color:var(--indigo);color:var(--indigo);background:transparent}
 .btn-ghost:hover{background:var(--indigo);color:var(--cream);transform:translateY(-1px)}
-.btn:focus-visible,a:focus-visible{outline:2.5px solid var(--gold);outline-offset:3px}
+.btn:focus-visible,a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:2.5px solid var(--gold-deep);outline-offset:3px}
 
 /* ---------- top bar ---------- */
 .topbar{
@@ -259,7 +260,7 @@ img,svg,canvas{display:block;max-width:100%}
 }
 .contact-form textarea{resize:vertical}
 .contact-form input:focus,.contact-form select:focus,.contact-form textarea:focus{
-  outline:none;border-color:var(--madder);
+  border-color:var(--madder); /* second focus cue alongside the global :focus-visible ring */
 }
 .contact-form .btn{justify-self:start}
 .form-note{margin:0;font-size:.9rem;font-weight:500;color:var(--olive);min-height:1.3em}
