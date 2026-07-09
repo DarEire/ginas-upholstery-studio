@@ -18,6 +18,15 @@ Design inspired by [isas1/forever-ai-components](https://github.com/isas1/foreve
 
 Design inspiration: Maiden Home, Long Eaton Sofas, Sixpenny, Loaf — "quiet premium" with a heritage-craft accent.
 
+## Brand assets
+
+Generated brand assets live in `images/`:
+- `logo.png` — the "G" monogram (tulip + needle-and-thread), transparent background, used in the header. The footer keeps a gold SVG "G" that reads on the dark background.
+- `apple-touch-icon.png` — iOS home-screen icon (cream background, as iOS requires opaque).
+- `og-image.jpg` — social share image (1200×630) referenced by the Open Graph / Twitter meta tags. **Set an absolute URL** (`https://yourdomain/images/og-image.jpg`) once the domain is live, since some scrapers require it.
+- `pattern.jpg` — Arts & Crafts pattern used as the decorative ribbon above the footer.
+- `service-icons.png` — an illustrated icon sheet (not wired in; the service cards use crisp inline SVG icons, which scale and recolour better than a raster). Kept here as a reference asset.
+
 ## Run locally
 
 Open `index.html` in a browser, or:

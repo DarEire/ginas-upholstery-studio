@@ -82,8 +82,9 @@ img,svg,canvas{display:block;max-width:100%}
   backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
   border-bottom:1px solid var(--line);
 }
-.brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--indigo)}
-.brand-mark{color:var(--madder);flex:none}
+.brand{display:flex;align-items:center;gap:.6rem;text-decoration:none;color:var(--indigo)}
+.brand-mark{color:var(--madder);flex:none;display:flex}
+.brand-logo{display:block;width:52px;height:52px;object-fit:contain}
 .brand-name{font-family:var(--serif);font-size:1.02rem;font-weight:600;line-height:1.05}
 .brand-name em{font-style:italic;font-weight:400;font-size:.86em;color:var(--olive)}
 .nav-links{display:flex;gap:1.7rem;margin-left:auto}
@@ -327,6 +328,13 @@ img,svg,canvas{display:block;max-width:100%}
 }
 .map-directions:hover{background:#8f2f23;transform:translateY(-1px)}
 .map-directions svg{color:var(--cream)}
+
+/* arts & crafts pattern ribbon (decorative divider above the footer) */
+.pattern-ribbon{
+  height:88px;
+  background:url("images/pattern.jpg") center/cover no-repeat;
+  border-top:1px solid var(--line);
+}
 
 /* footer */
 .footer{background:var(--indigo-deep);color:var(--parchment);padding:3rem clamp(1.2rem,5vw,4rem) 1.6rem}
