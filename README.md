@@ -36,6 +36,8 @@ The form currently opens the visitor's email client (`mailto:`). For real submis
 
 ## Content notes
 
-- Phone numbers and the workshop address are carried over from the original site; the testimonials are placeholder copy — replace with real reviews before going live.
-- Social links point at instagram.com / facebook.com generically — swap in the real profile URLs.
-- The `mailto:` address `hello@ginasupholstery.ie` is a placeholder.
+- **Testimonials are real** — pulled from the business's Google reviews (4.8★ / 24 reviews): Eamon Comer, Orlagh Moran, French Vanoli. The rating badge links to the Google reviews page.
+- **Social links are live** — Instagram [@ginasupholstery](https://www.instagram.com/ginasupholstery/) and Facebook [/galway.upolstery](https://www.facebook.com/galway.upolstery). (Gina also has a personal page at /ginapinel.)
+- **Photos still needed.** The hero uses an illustrated before/after chair. Real photography of actual pieces is the biggest remaining upgrade — Instagram/Facebook image URLs are time-signed and can't be hotlinked, so drop the actual image files into an `images/` folder and reference them. See the design review for the recommended before/after gallery.
+- Phone numbers and the workshop address are carried over from the original business.
+- The `mailto:` address `hello@ginasupholstery.ie` is a placeholder; the form needs a Formspree hookup for real submissions.
