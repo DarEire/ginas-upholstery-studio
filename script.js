@@ -97,6 +97,7 @@
   (function () {
     var form = document.getElementById("enquiryForm");
     var note = document.getElementById("formNote");
+    var btn = document.getElementById("submitBtn");
     if (!form || !note) return;
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -113,11 +114,39 @@
         "\nPhone: " + (d.get("phone") || "—") +
         "\nService: " + d.get("service") +
         "\n\n" + d.get("message");
+      // brief loading state so the click registers before the mail client opens
+      if (btn) { btn.disabled = true; btn.textContent = "Opening your email…"; }
       window.location.href = "mailto:hello@ginasupholstery.ie?subject=" +
         encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
       note.classList.remove("is-error");
       note.textContent = "Opening your email app… or call us on 087 466 6974.";
+      if (btn) setTimeout(function () { btn.disabled = false; btn.textContent = "Send Enquiry"; }, 2500);
     });
+  })();
+
+  /* ============================================================
+     Scrollspy — highlight the nav link for the section in view
+     ============================================================ */
+  (function () {
+    if (!("IntersectionObserver" in window)) return;
+    var links = [].slice.call(document.querySelectorAll(".nav-links a[href^='#']"));
+    var map = {};
+    links.forEach(function (a) {
+      var id = a.getAttribute("href").slice(1);
+      var sec = id && document.getElementById(id);
+      if (sec) map[id] = a;
+    });
+    var ids = Object.keys(map);
+    if (!ids.length) return;
+    var visible = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { visible[en.target.id] = en.isIntersecting; });
+      // pick the topmost section currently in view
+      var current = ids.filter(function (id) { return visible[id]; })[0];
+      links.forEach(function (a) { a.classList.remove("is-current"); });
+      if (current) map[current].classList.add("is-current");
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+    ids.forEach(function (id) { io.observe(document.getElementById(id)); });
   })();
 
   /* Footer year */

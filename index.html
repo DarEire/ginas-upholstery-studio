@@ -59,7 +59,21 @@
     </ul>
   </div>
   <div class="hero-art reveal">
-    <div class="reveal-stage" id="revealStage">
+    <div class="hero-video">
+      <iframe src="https://www.youtube-nocookie.com/embed/uHE7irBAUqw?rel=0" title="Gina's Upholstery featured on RTÉ's Late Late Show Antiques Special" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <p class="art-caption">As featured on RTÉ's <em>Late Late Show</em></p>
+  </div>
+</section>
+
+<!-- Before &amp; After -->
+<section class="section beforeafter" id="beforeafter">
+  <div class="section-head reveal">
+    <p class="eyebrow">Before &amp; after</p>
+    <h2>See a piece come back to life</h2>
+    <p class="section-sub">The same wingback armchair — worn on one side, re-upholstered on the other. Drag the tack across to reveal the transformation.</p>
+  </div>
+  <div class="reveal-stage reveal" id="revealStage">
       <svg viewBox="0 0 600 750" role="img" aria-label="The same wingback armchair before and after restoration: worn, patched and faded on one side; re-upholstered in rich madder red with gold piping and polished legs on the other.">
         <defs>
           <clipPath id="revealClip"><rect id="revealClipRect" x="330" y="0" width="270" height="750"/></clipPath>
@@ -132,8 +146,7 @@
       <div class="reveal-line" aria-hidden="true"></div>
       <input type="range" id="revealRange" min="0" max="100" value="55" step="0.5" aria-label="Compare the chair before and after restoration">
     </div>
-    <p class="art-caption">Drag the tack — watch it come back to life</p>
-  </div>
+  <p class="ba-caption reveal">Drag the tack — watch it come back to life</p>
 </section>
 
 <!-- Services -->
@@ -270,12 +283,13 @@
       </div>
     </div>
     <form class="contact-form reveal" id="enquiryForm" novalidate>
+      <p class="form-legend">Fields marked <b class="req" aria-hidden="true">*</b> are required.</p>
       <div class="field-row">
-        <label>Name<input type="text" name="name" required autocomplete="name" placeholder="Your name"></label>
-        <label>Phone<input type="tel" name="phone" autocomplete="tel" placeholder="087 …"></label>
+        <label><span class="lbl">Name <b class="req" aria-hidden="true">*</b></span><input type="text" name="name" required autocomplete="name" placeholder="Your name"></label>
+        <label><span class="lbl">Phone</span><input type="tel" name="phone" autocomplete="tel" placeholder="087 …"></label>
       </div>
-      <label>Email<input type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
-      <label>Service
+      <label><span class="lbl">Email <b class="req" aria-hidden="true">*</b></span><input type="email" name="email" required autocomplete="email" placeholder="you@example.com"></label>
+      <label><span class="lbl">Service <b class="req" aria-hidden="true">*</b></span>
         <select name="service" required>
           <option value="" selected disabled>Choose a service…</option>
           <option>Re-Upholstery</option>
@@ -285,10 +299,17 @@
           <option>Something else</option>
         </select>
       </label>
-      <label>Message<textarea name="message" rows="5" required placeholder="Tell us about the piece — age, size, what you'd like done…"></textarea></label>
-      <button class="btn btn-solid btn-lg" type="submit">Send Enquiry</button>
+      <label><span class="lbl">Message <b class="req" aria-hidden="true">*</b></span><textarea name="message" rows="5" required placeholder="Tell us about the piece — age, size, what you'd like done…"></textarea></label>
+      <button class="btn btn-solid btn-lg" id="submitBtn" type="submit">Send Enquiry</button>
       <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
     </form>
+  </div>
+  <div class="contact-map reveal">
+    <iframe title="Map showing Gina's Upholstery Studio at Carnmore Cross, Co. Galway, H91 W3V6" src="https://www.openstreetmap.org/export/embed.html?bbox=-8.953%2C53.293%2C-8.913%2C53.315&layer=mapnik&marker=53.30418%2C-8.93298" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <a class="map-directions" href="https://www.google.com/maps/dir/?api=1&destination=Galway%20Upholstery%20Carnmore%20Cross%20H91%20W3V6" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path d="M12 2a7 7 0 0 0-7 7c0 5.2 7 13 7 13s7-7.8 7-13a7 7 0 0 0-7-7z" fill="currentColor"/><circle cx="12" cy="9" r="2.5" fill="#a8392b"/></svg>
+      Get directions
+    </a>
   </div>
 </section>
 
