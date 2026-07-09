@@ -228,6 +228,21 @@ img,svg,canvas{display:block;max-width:100%}
 }
 .quote-card figcaption{font-size:.85rem;font-weight:600;color:var(--olive)}
 
+/* instagram feed */
+.instagram{background:var(--indigo);color:var(--parchment)}
+.instagram h2{color:var(--parchment)}
+.instagram .eyebrow{color:var(--gold)}
+.instagram .section-sub{color:color-mix(in srgb,var(--parchment) 86%,transparent)}
+.instagram .section-sub a{color:var(--gold);text-decoration:underline;text-underline-offset:2px}
+.ig-grid{
+  display:flex;flex-wrap:wrap;gap:1.4rem;justify-content:center;
+  max-width:1120px;margin:0 auto;
+}
+/* let each official embed keep its native width (~326px) and wrap; embed.js
+   sets inline styles, so we only normalise the margin */
+.ig-grid .instagram-media{margin:0 !important;border-radius:var(--radius)}
+.ig-cta{text-align:center;margin-top:2.4rem}
+
 /* contact */
 .contact{background:var(--parchment);border-top:1px solid var(--line)}
 .contact-inner{
